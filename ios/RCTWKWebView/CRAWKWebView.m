@@ -65,6 +65,8 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     _contentInset = UIEdgeInsetsZero;
     
     WKWebViewConfiguration* config = [[WKWebViewConfiguration alloc] init];
+    // dataDetector type phone & address
+    config.dataDetectorTypes = UIDataDetectorTypePhoneNumber | UIDataDetectorTypeAddress;
     config.processPool = processPool;
     WKUserContentController* userController = [[WKUserContentController alloc]init];
     [userController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:@"reactNative"];
